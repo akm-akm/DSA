@@ -5,7 +5,10 @@ using namespace std;
 int main()
 {
     unordered_map<string, int> m;
+<<<<<<< HEAD
     unordered_map<int, int> mp;
+=======
+>>>>>>> c2419797131ee90071f7ef0121048c37e58602cf
 
     pair<string, int> a("hello", 1);
     m.insert(a);
@@ -28,10 +31,13 @@ int main()
         cout << i->first << i->second << endl;
         i++;
     }
+<<<<<<< HEAD
 
     mp[6]++;
     mp[6]++;
     mp[6]++;
     cout << mp[6] << endl;
+=======
+>>>>>>> c2419797131ee90071f7ef0121048c37e58602cf
     return 0;
 }
