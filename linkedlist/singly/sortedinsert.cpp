@@ -30,25 +30,30 @@ Node *sortedInsert(Node *head, int x)
     {
         return temp;
     }
-    Node *c = head;
-    if (c->data >= x)
+
+    if (head->data > x)
     {
-        
+        temp->next = head;
+        return temp;
     }
-    while (c->next != NULL)
+
+    Node *c = head;
+
+    while (c->next != NULL && c->next->data < x)
     {
-        if (c->next->data >= x)
-        {
-            break;
-        }
         c = c->next;
     }
+    temp->next = c->next;
+    c->next = temp;
+    return head;
 }
 int main()
 {
-    Node *head = new Node(10);
+    Node *head = new Node(30);
     head->next = new Node(20);
-    head->next->next = new Node(30);
-    head->next->next->next = new Node(40);
+    head->next->next = new Node(10);
+    head->next->next->next = new Node(4);
+    print(head);
+    head = sortedInsert(head, 22);
     print(head);
 }
