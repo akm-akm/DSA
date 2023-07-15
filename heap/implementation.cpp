@@ -20,13 +20,24 @@ struct Heap
         if (s == c)
             return;
         s++;
-        arr[s-1] = x;
-        int pos = s-1;
-        while (x < arr[(pos - 1) / 2] || pos != 0)
+        arr[s - 1] = x;
+        int pos = s - 1;
+        while (arr[pos] < arr[(pos - 1) / 2] && pos != 0)
         {
-            swap(arr[pos], arr[(pos - 1) / 2]);
-            pos = (pos - 1) / 2;
+            if (arr[pos] < arr[(pos - 1) / 2])
+            {
+                swap(arr[pos], arr[(pos - 1) / 2]);
+                pos = (pos - 1) / 2;
+            }
         }
+        // for (int i = s - 1; i != 0 && arr[i] < arr[(i - 1) / 2];)
+        // {
+        //     if (arr[i] < arr[(i - 1) / 2])
+        //     {
+        //         swap(arr[i], arr[(i - 1) / 2]);
+        //         i = (i - 1) / 2;
+        //     }
+        // }
     }
     void print()
     {
@@ -40,14 +51,14 @@ struct Heap
 int main()
 {
     Heap h(20);
-    h.insert(19);
     h.insert(321);
     h.insert(143);
     h.insert(17);
     h.insert(16);
+    h.insert(19);
     h.insert(241);
     h.insert(13);
     h.insert(21);
-   h.print();
+    h.print();
     return 0;
 }

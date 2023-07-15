@@ -221,8 +221,8 @@ int main()
     string d = "12 3 5 / 6 + *";
     string a = "a+b/(c*d)"; // ok
     string c = "a+(b/c)*d";
-    string b = "a+b";
-  //  infixPostfix(b);
-    infixPrefix(b);
+    string b = "(a+(b/c))*d";
+    infixPostfix(b);
+  //  infixPrefix(b);
     // cout << postfixOutput(d);
 }
