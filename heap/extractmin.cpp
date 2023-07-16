@@ -5,11 +5,11 @@ using namespace std;
 struct Heap
 {
     int *arr;
-    int smallest, capacity;
+    int size, capacity;
     Heap(int cap)
     {
         capacity = cap;
-        smallest = 0;
+        size = 0;
         arr = new int[capacity];
     }
     int left(int index) { return 2 * index + 1; }
@@ -18,11 +18,11 @@ struct Heap
 
     void insert(int value)
     {
-        if (smallest == capacity)
+        if (size == capacity)
             return;
-        smallest++;
-        arr[smallest - 1] = value;
-        int pos = smallest - 1;
+        size++;
+        arr[size - 1] = value;
+        int pos = size - 1;
         while (arr[pos] < arr[(pos - 1) / 2] && pos != 0)
         {
             if (arr[pos] < arr[(pos - 1) / 2])
@@ -31,7 +31,7 @@ struct Heap
                 pos = (pos - 1) / 2;
             }
         }
-        // for (int index = smallest - 1; index != 0 && arr[index] < arr[(index - 1) / 2];)
+        // for (int index = size - 1; index != 0 && arr[index] < arr[(index - 1) / 2];)
         // {
         //     if (arr[index] < arr[(index - 1) / 2])
         //     {
@@ -42,7 +42,7 @@ struct Heap
     }
     void print()
     {
-        for (int index = 0; index < smallest; index++)
+        for (int index = 0; index < size; index++)
         {
             cout << arr[index] << endl;
         }
@@ -67,9 +67,9 @@ struct Heap
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int smallest = index;
-        if (left < smallest && arr[index] > arr[left])
+        if (left < size && arr[index] > arr[left])
             smallest = left;
-        if (right < smallest && arr[smallest] > arr[right])
+        if (right < size && arr[smallest] > arr[right])
             smallest = right;
         if (smallest != index)
         {
@@ -81,8 +81,8 @@ struct Heap
     int extractMin()
     {
         int temp = arr[0];
-        swap(arr[0], arr[smallest - 1]);
-        smallest--;
+        swap(arr[0], arr[size - 1]);
+        size--;
         minHeapify();
         return temp;
     }

@@ -103,8 +103,8 @@ int main()
     string a = "a+b/(c*d)"; // ok
     string c = "a+(b/c)*d";
     string b = "(3-2+l/8)-(4+6/3*(5^8))";
-               cout
-               << infixToPostfix(b);
+    cout
+        << infixToPostfix(b);
     //  infixPrefix(b);
     // cout << postfixOutput(d);
 }
