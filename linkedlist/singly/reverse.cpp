@@ -49,6 +49,8 @@ Node *reverseRecursive(Node *curr, Node *prev = NULL)
     curr->next = prev;
     return reverseRecursive(next, curr);
 }
+
+
 int main()
 {
     Node *head = new Node(10);

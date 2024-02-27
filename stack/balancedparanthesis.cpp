@@ -31,6 +31,6 @@ bool check(string a)
 int main()
 {
     string a = "((({}[])))";
-    cout << check(a);
+    cout << check(a) << endl;
     return 0;
 }
